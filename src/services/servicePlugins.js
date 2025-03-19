@@ -1,8 +1,8 @@
-const TestService = require('./testServices')
+const SubmissionService = require('./submissionServices')
 const fastifyPlugin = require('fastify-plugin')
 
 async function servicePlugin(fastify,option) {
-    fastify.decorate('testService',new TestService())
+    fastify.decorate('submissionService',new SubmissionService())
 }
 
 module.exports = fastifyPlugin(servicePlugin)

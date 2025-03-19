@@ -1,8 +1,7 @@
 const app = require('./app')
 
 const fastify = require('fastify')({logger:true}) // calling the fastify constructor
-
-const PORT = 3000
+const serverConfig = require('./config/serverConfig')
 
 fastify.get('/ping', (req,res) => {
     res.send({data: "pong"})
@@ -10,12 +9,12 @@ fastify.get('/ping', (req,res) => {
 
 fastify.register(app)
 
-fastify.listen({port : PORT}, (err) =>{
+fastify.listen({port : serverConfig.PORT}, (err) =>{
     if(err){
         fastify.log.error(err) ;
         process.exit(1)
     }
-    console.log(`Server up and running at ${PORT}`)
+    console.log(`Server up and running at ${serverConfig.PORT}`)
     
 })
 
