@@ -1,3 +1,4 @@
+const { fetchProblemDetails } = require('./apis/problemAdminApi')
 const app = require('./app')
 const connectToDB = require('./config/dbConfig')
 
@@ -18,5 +19,6 @@ fastify.listen({port : serverConfig.PORT}, async (err) =>{
     await connectToDB() 
     console.log(`Server up and running at ${serverConfig.PORT}`)
     
+    // fetchProblemDetails("67e2eab8e1637cc0ab6d1316")
 })
 
