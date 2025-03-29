@@ -33,7 +33,14 @@ class SubmissionService{
         if(!submission){
             throw {message : "Not able to create submission"}
         }
-        const response = await submissionProducer(submission)
+        const response = await submissionProducer({
+            [submission._id]:{
+                code: submission.code,
+                language: submission.language,
+                inputCase: problemAdminApiResponse.data.testcases[0].input,
+                outputCase: problemAdminApiResponse.data.testcases[0].output
+            }
+        })
         return {queueResponse:response, submission}; 
         
     }
