@@ -14,6 +14,7 @@ class SubmissionService{
         console.log(`Submission Payload Recieved `)
         console.log(submissionPayload)
         const problemId = submissionPayload.problemId;
+        const userId = submissionPayload.userId
         console.log(`Problem Id : ${problemId}`)
         const problemAdminApiResponse = await fetchProblemDetails(problemId)
 
@@ -38,9 +39,12 @@ class SubmissionService{
                 code: submission.code,
                 language: submission.language,
                 inputCase: problemAdminApiResponse.data.testcases[0].input,
-                outputCase: problemAdminApiResponse.data.testcases[0].output
+                outputCase: problemAdminApiResponse.data.testcases[0].output,
+                userId,
+                submissionId : submission._id
             }
         })
+        //Handle all test cases
         return {queueResponse:response, submission}; 
         
     }
