@@ -16,7 +16,6 @@ async function fetchProblemDetails(problemId) {
         fastify.log.error(error)
     }
 }
-
 module.exports = {
     fetchProblemDetails
 }
