@@ -57,6 +57,10 @@ The Submission Service is a core component of the Remote Code Executor system. I
 
 ---
 
+## Architecture Diagram 
+![image](https://github.com/user-attachments/assets/5f39c786-e5e1-415b-af80-24792cb9fc37)
+
+
 ## ✨ Running Locally
 
 ### 🧱  Prerequisites
